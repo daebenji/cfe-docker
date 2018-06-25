@@ -1,6 +1,7 @@
 FROM ubuntu
 MAINTAINER Eystein Måløy Stenberg <eytein.stenberg@gmail.com>
-
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get -y update && apt dist-upgrade -y
 RUN apt-get -y install wget lsb-release unzip
 
 # install latest CFEngine
