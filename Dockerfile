@@ -1,8 +1,9 @@
 FROM ubuntu
 MAINTAINER Eystein Måløy Stenberg <eytein.stenberg@gmail.com>
-ENV DEBIAN_FRONTEND=noninteractive
+
+ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get -y update && apt dist-upgrade -y
-RUN apt-get -y install wget lsb-release unzip
+RUN apt-get -y install wget lsb-release unzip vim apt-transport-https xz-utils net-tools apt-utils sudo gnupg2
 
 # install latest CFEngine
 RUN wget -qO- http://cfengine.com/pub/gpg.key | apt-key add -
