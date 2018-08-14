@@ -6,10 +6,7 @@ RUN apt-get -y update && apt dist-upgrade -y
 RUN apt-get -y install wget lsb-release unzip vim apt-transport-https xz-utils net-tools apt-utils sudo gnupg2
 
 # install latest CFEngine
-RUN wget -qO- http://cfengine.com/pub/gpg.key | apt-key add -
-RUN echo "deb http://cfengine.com/pub/apt $(lsb_release -cs) main" > /etc/apt/sources.list.d/cfengine-community.list
-RUN apt-get update
-RUN apt-get install cfengine-community
+RUN wget -O- https://s3.amazonaws.com/cfengine.packages/quick-install-cfengine-community.sh | sudo bash
 
 # install cfe-docker process management policy
 RUN wget --no-check-certificate https://github.com/estenberg/cfe-docker/archive/master.zip -P /tmp/ && unzip /tmp/master.zip -d /tmp/
